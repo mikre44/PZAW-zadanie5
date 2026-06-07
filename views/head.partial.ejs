@@ -1,7 +1,24 @@
-<html lang="en">
+<html data-theme="<%- settings.theme %>" lang="pl">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="/css/style.css" />
   </head>
   <body>
+    <main>
+      <section class="controls">
+      
+      <a href="/settings/toggle-theme?next=<%= encodeURIComponent(page || '/') %>" class="control">
+        <% if (settings.theme === "dark") { %>
+        <strong>Dark</strong> | Light
+        <% } else { %>
+        Dark | <strong>Light</strong>
+        <% } %>
+      </a>
+      <% if (title != "Signup" && title != "Login"){ %>
+        <div class="control">
+        <a href="/auth/logout" style="color: blue;">Log out  </a>
+        <span>  Logged as: <%= username %></span>
+        </div>
+      <% } %>
+    

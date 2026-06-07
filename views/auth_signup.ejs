@@ -1,0 +1,10 @@
+<%- include("head.partial.ejs") %>
+  </section>
+<h1><%= title %></h1>
+
+<div class="form-wrapper">
+  <%- include("forms/generic.ejs", form) %>
+</div>
+<span>Do you have an account?<a href="/auth/login" class="auth-change">  Log in!  </a></span>
+
+<%- include("foot.partial.ejs") %>

@@ -8,10 +8,11 @@
       class="new-card-input"
       required
       minlength="1"
-      maxlength="500"
+      maxlength="100"
       placeholder="name"
     />
   </div>
+  <br>
   <div>
     <input
       type="text"
@@ -24,7 +25,26 @@
       placeholder="link to the site"
     />
   </div>
+  <br>
   <div>
-    <button class="new-card-input">Submit</button>
+    <% categories.forEach((category, index) => { %>
+      <div class="new_card_div">
+        <input
+        type="checkbox"
+        name="categories"
+        value="<%= category.name%>"
+        class="new_card_checkbox"
+        />
+        <span class="new_card_span"><%= category.name %></span>
+        <br>
+        </div>
+      <% }) %>
+  </div>
+  <div class="checkbox-row">
+    <input type="checkbox" name="published" value="1" id="published">
+    <label for="published">Published</label>
+  </div>
+  <div>
+    <button class="new-card-input">ADD</button>
   </div>
 </form>

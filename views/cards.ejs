@@ -1,24 +1,28 @@
 <%- include("head.partial.ejs") %>
-
-<main>
+  <a class="control" href="/">Back</a>
+  </section>
   <h1 class="main-header"><%= title %></h1>
-  <form action="<%= title %>/delete" method="POST" class="main-form">
+
+  <form action="/<%= title %>/delete" method="POST" style="width: 100%;">
     <div class="card-grid">
-      <% category.link.forEach(function(card){ %>
+      <% 
+      if(cards != 0){
+      cards.forEach(function(card){ %>
         <div class="card">
           <h3><%= card.name %></h3>
           <h3><%= card.link %></h3>
           <a href="<%= card.link %>" target="_blank">Go</a>
+          <% if (card.parent){ %>
           <button type="submit" name="delete_id" value="<%= card.id %>" class="delete">DELETE</button>
+          <% } %>
         </div>
-      <% }) %>
+      <% })} %>
     </div>
   </form>
   <div class="new-card-section">
     <h3>Add new</h3>
     <%- include("forms/new_card.ejs") %>
   </div>
-  <a class="back" href="/">Back</a>
 </main>
 
 <%- include("foot.partial.ejs") %>
